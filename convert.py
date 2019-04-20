@@ -4,7 +4,7 @@ import os
 import sys
 
 WHERE_TO_WORK="."
-HOW_MANY_IS_REQUIRED=1
+HOW_MANY_IS_REQUIRED=2
 
 print("Collecting data...")
 
@@ -25,7 +25,7 @@ for path,d,f in os.walk(WHERE_TO_WORK):
             exts[ext] = True
             choosenName = name
     howMany = sum(1 for v in exts.values() if v==True)
-    if (howMany > HOW_MANY_IS_REQUIRED):
+    if (howMany >= HOW_MANY_IS_REQUIRED):
         newPath = os.path.dirname(path) + "/" + choosenName
         if (newPath != path):
             listOfTasks[path] = newPath
